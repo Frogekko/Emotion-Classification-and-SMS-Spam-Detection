@@ -3,22 +3,21 @@ import numpy as np
 import gradio as gr
 from sms_spam_utils import preprocess_text, count_words, count_punctuation, count_uppercase_words
 
-# --- Load Model and Associated Data ---
+# Load Model and Associated Data
 try:
     with open('sms_spam_model.pkl', 'rb') as f:
         model_data = pickle.load(f)
         model = model_data['model']
-        vectorizer = model_data['vectorizer']  # This should be your trained binary_vectorizer
+        vectorizer = model_data['vectorizer']
         spam_keywords = model_data['spam_keywords']
 except FileNotFoundError:
     print("ERROR: sms_spam_model.pkl not found. Please train and save the model first.")
-    # You might want to exit or disable the interface if the model isn't found
     model, vectorizer, spam_keywords = None, None, []
 except Exception as e:
     print(f"Error loading model: {e}")
     model, vectorizer, spam_keywords = None, None, []
 
-# --- Prediction Function ---
+# Prediction Function
 def predict_spam(message_text):
     if model is None or vectorizer is None:
         return "Model not loaded. Please check setup.", None
@@ -93,7 +92,7 @@ def predict_spam(message_text):
     return styled_output
 
 
-# --- Gradio Interface ---
+# Gradio Interface
 with gr.Blocks(theme=gr.themes.Soft(), css="footer {display: none !important}") as app:
     gr.Markdown(
         """
@@ -139,11 +138,11 @@ with gr.Blocks(theme=gr.themes.Soft(), css="footer {display: none !important}") 
         """
         ---
         *Powered by a Machine Learning model trained on textual features.*
-        *Remember: This is an automated prediction and may not always be 100% accurate.*
+        *The model uses a combination of Bag-of-Words and additional features to classify messages as spam or ham.*
         """
     )
 
-    # --- Button Actions ---
+    # Button Actions
     submit_button.click(fn=predict_spam, inputs=message_input, outputs=output_display)
     clear_button.click(lambda: [None, "<p style='text-align:center; color:grey;'>Results will appear here...</p>"], inputs=None, outputs=[message_input, output_display])
 
