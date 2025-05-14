@@ -1,3 +1,5 @@
+# Some of these functions were taken from an older project for programming 2 compulsory 2 made by group 20, refer to the sources for more information.
+
 import string
 import numpy as np
 
@@ -24,13 +26,13 @@ def get_wordnet_pos(tag):
     elif tag.startswith('R'):
         return wn.ADV
     else:
-        return wn.NOUN
+        return wn.NOUN # Default to noun
 
 # Lemmatizing words with POS tags, removing stop words and non-alphanumeric tokens
 def lem(words, pos_tags):
     lemmatizer = WordNetLemmatizer()
     stop_words = set(stopwords.words('english'))
-    return [lemmatizer.lemmatize(word, pos=get_wordnet_pos(tag)) for word, tag in zip(words, pos_tags) if word.isalnum() and word not in stop_words]
+    return [lemmatizer.lemmatize(word, pos=get_wordnet_pos(tag)) for word, tag in zip(words, pos_tags) if word.isalnum() and word not in stop_words] # Keep alphanumeric non-stop words
 
 # Counting the number of words in text after tokenization and lemmatization
 def count_words(text):
@@ -47,7 +49,7 @@ def get_word_freq(texts):
         pos_tags = [tag for _, tag in nltk.pos_tag(tokens)]
         lemmatized = lem(tokens, pos_tags)
         all_words.extend(lemmatized)
-    return Counter(all_words).most_common(10)
+    return Counter(all_words).most_common(10) # Return top 10
 
 # Counting punctuation characters in the text
 def count_punctuation(text):
@@ -56,12 +58,12 @@ def count_punctuation(text):
 # Counting uppercase words longer than one character
 def count_uppercase_words(text):
     words = text.split()
-    return sum(1 for word in words if word.isupper() and len(word) > 1)
+    return sum(1 for word in words if word.isupper() and len(word) > 1) # Sum punctuation occurrences
 
 # Preprocessing text by removing special characters and applying tokenization, POS tagging, and lemmatization
 def preprocess_text(text):
-    text = text.replace('>', '').replace('<', '')
+    text = text.replace('>', '').replace('<', '') # Remove special characters
     tokens = tokenize(text)
     pos_tags = [tag for _, tag in nltk.pos_tag(tokens)]
     lemmatized = lem(tokens, pos_tags)
-    return ' '.join(lemmatized)
+    return ' '.join(lemmatized) # Return processed text
