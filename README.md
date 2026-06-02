@@ -32,23 +32,20 @@ Interactive web demos were developed for both classifiers using Gradio.
 
 ---
 
-## Tech Stack
-
-* **Machine Learning:** `PyTorch`, `Scikit-Learn`
-* **NLP / Transformers:** `Transformers (HuggingFace)`, `NLTK`, `tokenizers`
-* **Data Handling & Analysis:** `Pandas`, `NumPy`, `Matplotlib`, `Seaborn`
-* **Web Demo:** `Gradio`
-* **Environment:** `Conda`, `Pip`
-
----
-
-## ⚙️ How it Works
+## How it Works & Tech Stack
 
 ### Emotion Classification
 The system uses a pre-trained `bert-base-uncased` model fine-tuned for multi-label sequence classification. Input text is tokenized, padded/truncated to 128 tokens, and fed into the BERT model. The output logits pass through a sigmoid function, and predictions are made based on individually tuned thresholds for each of the 28 emotion classes. Class weights are used during training to mitigate data imbalance.
 
 ### SMS Spam Detection
 Input SMS messages undergo preprocessing including tokenization and lemmatization using NLTK with POS tagging. Features are extracted using various Bag of Words methods (Binary BoW performed best) and combined with engineered features (length, counts, keywords) identified during EDA. These combined features are then used to train and evaluate classic ML classifiers, with SVM yielding the top performance.
+
+### Tech Stack
+* **Machine Learning:** `PyTorch`, `Scikit-Learn`
+* **NLP / Transformers:** `Transformers (HuggingFace)`, `NLTK`, `tokenizers`
+* **Data Handling & Analysis:** `Pandas`, `NumPy`, `Matplotlib`, `Seaborn`
+* **Web Demo:** `Gradio`
+* **Environment:** `Conda`, `Pip`
 
 ---
 
