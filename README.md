@@ -9,7 +9,7 @@ Interactive web demos were developed for both classifiers using Gradio.
 
 ---
 
-## Demos
+## Projects in Action
 ![Emotion Classification Demo](./assets/emotion_demo.gif)
 
 ![Spam Detection Demo](./assets/spam_demo.gif)
@@ -83,4 +83,4 @@ The Conda method is recommended for full environment replication using the provi
 
 ## Contributors
 
-* **Pedro**
+* [Pedro Torrão](https://www.linkedin.com/in/pedro-torrao/)
