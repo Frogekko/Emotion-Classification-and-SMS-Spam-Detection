@@ -1,6 +1,6 @@
 # NLP Project Suite: Emotion & Spam Classification
 
-This repository contains the work for two distinct Natural Language Processing (NLP) projects completed for the Programming II final exam at INN. The suite covers both complex multi-label classification using transformers and classic binary classification with feature engineering.
+This repository contains the work for two distinct Natural Language Processing (NLP) projects which are part of the course-work of the Programming 2 course at University of Inland Norway. The suite covers both complex multi-label classification using transformers and classic binary classification with feature engineering.
 
 1.  **Multi-Label Emotion Classification:** A BERT-based model trained to identify 28 different emotions from text.
 2.  **SMS Spam Detection:** A system comparing classic ML models with custom features to classify messages as spam or ham.
@@ -9,14 +9,14 @@ Interactive web demos were developed for both classifiers using Gradio.
 
 ---
 
-## 🚀 Demos in Action
+## Demos
 ![Emotion Classification Demo](./assets/emotion_demo.gif)
 
 ![Spam Detection Demo](./assets/spam_demo.gif)
 
 ---
 
-## ✨ Key Features & Results
+## Key Features & Results
 
 ### Emotion Classification
 * **Model:** Utilized the `bert-base-uncased` transformer model for sequence classification.
@@ -32,7 +32,7 @@ Interactive web demos were developed for both classifiers using Gradio.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Machine Learning:** `PyTorch`, `Scikit-Learn`
 * **NLP / Transformers:** `Transformers (HuggingFace)`, `NLTK`, `tokenizers`
@@ -52,7 +52,7 @@ Input SMS messages undergo preprocessing including tokenization and lemmatizatio
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Setup
 The Conda method is recommended for full environment replication using the provided `environment.yml` file.
@@ -84,6 +84,6 @@ The Conda method is recommended for full environment replication using the provi
 
 ---
 
-## 👥 Contributors
+## Contributors
 
-* **Pedro Torrão**
+* **Pedro**
